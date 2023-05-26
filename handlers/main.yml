@@ -1,0 +1,12 @@
+# Standards: 1.2
+---
+- name: Restart syncthing
+  loop: "{{ syncthing_general_users + syncthing_extra_users }}"
+  loop_control:
+    label: "{{ item.username }}"
+  systemd:
+    name: "syncthing@{{ item.username }}"
+    state: restarted
+    daemon_reload: True
+
+...

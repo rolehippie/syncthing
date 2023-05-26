@@ -1,0 +1,39 @@
+# Standards: 1.2
+---
+# @var syncthing_general_users:description: List of general users to configure
+# @var syncthing_general_users:example: >
+# syncthing_general_users:
+#   - username: hans
+#     config:
+#       device:
+#         '@introducer': True
+#         autoAcceptFolders: True
+#       gui:
+#         address: 0.0.0.0:8384
+#   - username: foobar
+#     home: /var/lib/foobar
+# @end
+syncthing_general_users: []
+
+# @var syncthing_extra_users:description: List of extra users to configure
+# @var syncthing_extra_users:example: >
+# syncthing_extra_users:
+#   - username: hans
+#     config:
+#       device:
+#         '@introducer': True
+#         autoAcceptFolders: True
+#       gui:
+#         address: 0.0.0.0:8384
+#   - username: foobar
+#     home: /var/lib/foobar
+# @end
+syncthing_extra_users: []
+
+# @var syncthing_keyring:description: Path for the repository keyring
+syncthing_keyring: /usr/share/keyrings/syncthing-archive-keyring.gpg
+
+# @var syncthing_arch:description: Architecture for syncthing repo
+syncthing_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+
+...

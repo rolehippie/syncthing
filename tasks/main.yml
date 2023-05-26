@@ -1,0 +1,36 @@
+# Standards: 1.2
+---
+- name: Download repo key
+  shell:
+    cmd: "curl -sSL https://syncthing.net/release-key.gpg | gpg --dearmor --output {{ syncthing_keyring }}"
+    creates: "{{ syncthing_keyring }}"
+  tags:
+    - syncthing
+
+- name: Add apt repository
+  apt_repository:
+    repo: "deb [arch={{ syncthing_arch }} signed-by={{ syncthing_keyring }}] https://apt.syncthing.net/ syncthing stable"
+    filename: syncthing
+    update_cache: True
+    state: present
+  tags:
+    - syncthing
+
+- name: Install required packages
+  loop:
+    - syncthing
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  tags:
+    - syncthing
+
+- name: Process user config
+  loop: "{{ syncthing_general_users + syncthing_extra_users }}"
+  loop_control:
+    label: "{{ item.username }}"
+  include_tasks: config.yml
+  tags:
+    - syncthing
+
+...
