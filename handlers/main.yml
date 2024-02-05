@@ -1,4 +1,3 @@
-# Standards: 1.2
 ---
 - name: Restart syncthing
   loop: "{{ syncthing_general_users + syncthing_extra_users }}"
