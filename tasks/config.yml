@@ -1,4 +1,3 @@
-# Standards: 1.2
 ---
 - name: Generate user config
   become: True
@@ -41,7 +40,7 @@
     - syncthing
 
 - name: Start syncthing service
-  systemd:
+  ansible.builtin.systemd:
     name: "syncthing@{{ item.username }}"
     state: started
     daemon_reload: True
