@@ -40,7 +40,7 @@
     - syncthing
 
 - name: Start syncthing service
-  systemd:
+  ansible.builtin.systemd:
     name: "syncthing@{{ item.username }}"
     state: started
     daemon_reload: True
