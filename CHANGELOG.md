@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.0](https://github.com/rolehippie/syncthing/compare/v1.0.0...v2.0.0) (2024-02-12)
+
+
+### Features
+
+* used full qualified collection names ([5bc44c7](https://github.com/rolehippie/syncthing/commit/5bc44c7d6597e0b9c55ee6362fd7d41dc51ee100))
+
 ## 1.0.0 (2023-05-26)
 
 
