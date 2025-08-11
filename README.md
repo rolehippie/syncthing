@@ -1,4 +1,4 @@
-# syncthing
+# workspace
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/syncthing)
 [![General Workflow](https://github.com/rolehippie/syncthing/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/syncthing/actions/workflows/general.yml)
@@ -107,7 +107,6 @@ syncthing_keyring: /usr/share/keyrings/syncthing-archive-keyring.gpg
 ## Discovered Tags
 
 **_syncthing_**
-
 
 ## Dependencies
 
