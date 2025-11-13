@@ -1,17 +1,17 @@
 ---
 - name: Generate user config
-  become: True
+  become: true
   become_user: "{{ item.username }}"
-  changed_when: False
+  changed_when: false
   ansible.builtin.command:
-    cmd: "syncthing generate --no-default-folder{% if item.home | default(False) %} --home={{ item.home }}{% endif %}{% if item.password | default(False) %} --gui-user={{ item.username }} --gui-password={{ item.password }}{% endif %}"
+    cmd: "syncthing generate --no-default-folder{% if item.home | default(false) %} --home={{ item.home }}{% endif %}{% if item.password | default(false) %} --gui-user={{ item.username }} --gui-password={{ item.password }}{% endif %}"
   tags:
     - syncthing
 
 - name: Fetch user config
   register: syncthing_config_slurped
   ansible.builtin.slurp:
-    src: "{{ item.home | default('/home/'+item.username) }}/.config/syncthing/config.xml"
+    src: "{{ item.home | default('/home/' + item.username) }}/.config/syncthing/config.xml"
   tags:
     - syncthing
 
@@ -23,7 +23,7 @@
 
 - name: Fact config changed
   ansible.builtin.set_fact:
-    syncthing_config_updated: "{{ syncthing_config_original | combine({ 'configuration': syncthing_config_original.configuration | combine(item.config | default({}) | from_yaml, recursive=True) }) }}"
+    syncthing_config_updated: "{{ syncthing_config_original | combine({'configuration': syncthing_config_original.configuration | combine(item.config | default({}), recursive=true)}) }}"
   tags:
     - syncthing
 
@@ -31,8 +31,8 @@
   notify:
     - Restart syncthing
   ansible.builtin.copy:
-    content: "{{ syncthing_config_updated | ansible.utils.to_xml(indent='spaces', full_document=False) }}"
-    dest: "{{ item.home | default('/home/'+item.username) }}/.config/syncthing/config.xml"
+    content: "{{ syncthing_config_updated | ansible.utils.to_xml(indent='spaces', full_document=false) }}"
+    dest: "{{ item.home | default('/home/' + item.username) }}/.config/syncthing/config.xml"
     owner: "{{ item.username }}"
     group: "{{ item.group | default(item.username) }}"
     mode: u=rw,g=,o=
@@ -43,9 +43,9 @@
   ansible.builtin.systemd:
     name: "syncthing@{{ item.username }}"
     state: started
-    daemon_reload: True
-    masked: False
-    enabled: True
+    daemon_reload: true
+    masked: false
+    enabled: true
   tags:
     - syncthing
 

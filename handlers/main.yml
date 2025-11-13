@@ -6,6 +6,6 @@
   ansible.builtin.systemd:
     name: "syncthing@{{ item.username }}"
     state: restarted
-    daemon_reload: True
+    daemon_reload: true
 
 ...

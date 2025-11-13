@@ -1,8 +1,28 @@
 ---
 - name: Download repo key
-  ansible.builtin.shell:
-    cmd: "curl -sSL https://syncthing.net/release-key.gpg | gpg --dearmor --output {{ syncthing_keyring }}"
-    creates: "{{ syncthing_keyring }}"
+  register: syncthing_key_download
+  ansible.builtin.get_url:
+    url: https://syncthing.net/release-key.gpg
+    dest: "{{ syncthing_keyring }}.asc"
+    mode: u=rw,g=r,o=r
+    force: true
+  tags:
+    - syncthing
+
+- name: Check repo key
+  register: syncthing_key_status
+  ansible.builtin.stat:
+    path: "{{ syncthing_keyring }}"
+  tags:
+    - syncthing
+
+- name: Dearmor repo key
+  when:
+    - syncthing_key_download.changed or not syncthing_key_status.stat.exists
+  register: syncthing_key_convert
+  changed_when: syncthing_key_convert.rc == 0
+  ansible.builtin.command:
+    cmd: "gpg --dearmor -o {{ syncthing_keyring }} {{ syncthing_keyring }}.asc"
   tags:
     - syncthing
 
@@ -10,7 +30,7 @@
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ syncthing_arch }} signed-by={{ syncthing_keyring }}] https://apt.syncthing.net/ syncthing stable"
     filename: syncthing
-    update_cache: True
+    update_cache: true
     state: present
   tags:
     - syncthing

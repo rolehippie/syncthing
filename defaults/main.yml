@@ -5,8 +5,8 @@
 #   - username: hans
 #     config:
 #       device:
-#         '@introducer': True
-#         autoAcceptFolders: True
+#         '@introducer': true
+#         autoAcceptFolders: true
 #       gui:
 #         address: 0.0.0.0:8384
 #   - username: foobar
@@ -20,8 +20,8 @@ syncthing_general_users: []
 #   - username: hans
 #     config:
 #       device:
-#         '@introducer': True
-#         autoAcceptFolders: True
+#         '@introducer': true
+#         autoAcceptFolders: true
 #       gui:
 #         address: 0.0.0.0:8384
 #   - username: foobar
@@ -33,6 +33,6 @@ syncthing_extra_users: []
 syncthing_keyring: /usr/share/keyrings/syncthing-archive-keyring.gpg
 
 # @var syncthing_arch:description: Architecture for syncthing repo
-syncthing_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+syncthing_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'amd64' }}"
 
 ...
