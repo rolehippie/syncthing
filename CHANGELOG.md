@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/syncthing/compare/v2.0.0...v2.1.0) (2025-11-17)
+
+
+### Features
+
+* apply new repo structure and update linting and integrate noble ([abdebe7](https://github.com/rolehippie/syncthing/commit/abdebe75dc97665f7104153c003030e9543bcccf))
+
 ## [2.0.0](https://github.com/rolehippie/syncthing/compare/v1.0.0...v2.0.0) (2024-02-12)
 
 
