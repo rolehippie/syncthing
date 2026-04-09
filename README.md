@@ -41,8 +41,7 @@ Architecture for syncthing repo
 #### Default value
 
 ```YAML
-syncthing_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture
-  == 'arm64' else 'amd64' }}"
+syncthing_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'amd64' }}"
 ```
 
 ### syncthing_extra_users
