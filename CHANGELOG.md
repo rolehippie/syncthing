@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/rolehippie/syncthing/compare/v2.2.0...v2.3.0) (2026-08-10)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-doctor to v8.4.0 ([#44](https://github.com/rolehippie/syncthing/issues/44)) ([d014bb3](https://github.com/rolehippie/syncthing/commit/d014bb34bf75f2ec8d35b5ca79c27cac6b1bfa35))
+* **patch:** update dependency python to v3.14.7 ([#42](https://github.com/rolehippie/syncthing/issues/42)) ([e5b9b67](https://github.com/rolehippie/syncthing/commit/e5b9b671813dd9c7adfe1d1aa7af292122c669e6))
+
 ## [2.2.0](https://github.com/rolehippie/syncthing/compare/v2.1.0...v2.2.0) (2026-07-27)
 
 ## [2.1.0](https://github.com/rolehippie/syncthing/compare/v2.0.0...v2.1.0) (2025-11-17)
