@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.0](https://github.com/rolehippie/syncthing/compare/v2.3.0...v2.4.0) (2026-08-17)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-lint to v26.8.0 ([#47](https://github.com/rolehippie/syncthing/issues/47)) ([23879d3](https://github.com/rolehippie/syncthing/commit/23879d35190e219384b445b52463301e8336030e))
+* **minor:** update dependency pipx:molecule to v26.8.0 ([#48](https://github.com/rolehippie/syncthing/issues/48)) ([f95be0e](https://github.com/rolehippie/syncthing/commit/f95be0edaad9ca4981989d9e1060d7dfe1144d75))
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([#45](https://github.com/rolehippie/syncthing/issues/45)) ([32104f4](https://github.com/rolehippie/syncthing/commit/32104f411db19d5dba4974500d071e027e25e3be))
+* **patch:** update dependency pre-commit to v4.6.2 ([#46](https://github.com/rolehippie/syncthing/issues/46)) ([b601254](https://github.com/rolehippie/syncthing/commit/b60125454b7ca8e56c9641f18e0523d55fee9105))
+
 ## [2.3.0](https://github.com/rolehippie/syncthing/compare/v2.2.0...v2.3.0) (2026-08-10)
 
 ### Dependencies
