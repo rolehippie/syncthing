@@ -22,7 +22,7 @@
   register: syncthing_key_convert
   changed_when: syncthing_key_convert.rc == 0
   ansible.builtin.command:
-    cmd: "gpg --dearmor -o {{ syncthing_keyring }} {{ syncthing_keyring }}.asc"
+    cmd: "gpg --batch --yes --dearmor -o {{ syncthing_keyring }} {{ syncthing_keyring }}.asc"
   tags:
     - syncthing
 
