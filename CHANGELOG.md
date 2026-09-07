@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/rolehippie/syncthing/compare/v2.4.1...v2.5.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([4e234ec](https://github.com/rolehippie/syncthing/commit/4e234ec9efa82c9a444ab60d282ed8e00d50d241))
+* use new required facts as attributes ([badac00](https://github.com/rolehippie/syncthing/commit/badac00b68de735b28a4615dfb6d7e77ba35d54f))
+
 ## [2.4.1](https://github.com/rolehippie/syncthing/compare/v2.4.0...v2.4.1) (2026-08-31)
 
 ### Dependencies
